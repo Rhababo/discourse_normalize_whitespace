@@ -1,0 +1,4 @@
+plugins:
+  discourse_normalize_whitespace:
+    default: false
+    client: true
