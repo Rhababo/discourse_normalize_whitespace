@@ -1,0 +1,3 @@
+en:
+  site_settings:
+    discourse_normalize_whitespace: "Activate to set all whitespace to the default space character (U+0020)"

@@ -1,18 +1,22 @@
 # frozen_string_literal: true
 
-# name: normalize-whitespace-optional
-# about: stop removing extra whitespace from posts
+# name: optional-normalize-whitespace
+# about: add option to disable removing non standard spaces (U+0020) from posts
 # version: 0.1
 # authors: Rhababo
-# url: none
+# url: https://github.com/Rhababo/discourse_normalize_whitespace.git
 # transpile_js: true
 
 enabled_site_setting :discourse_normalize_whitespace
 
 after_initialize do
 
-  class ::TextCleaner
-    module NormalizeNormalize_whitespace
+  # overrides the default normalize_whitespaces function in discourse/lib/text_cleaner.rb
+  # adds discourse_normalize_whitespace setting (defaults to false)
+  # when true, normalize_whitespace runs as normal
+  # when false, it does nothing, which allows for persistence of non-default whitespace.
+    class ::TextCleaner
+    module Optional_normalize_whitespace
       def title_options
         options = super
         options[:normalize_whitespace_opt] = SiteSetting.discourse_normalize_whitespace
@@ -26,7 +30,7 @@ after_initialize do
         text
       end
     end
-    singleton_class.prepend NormalizeNormalize_whitespace
+    singleton_class.prepend Optional_normalize_whitespace
   end
 end
 

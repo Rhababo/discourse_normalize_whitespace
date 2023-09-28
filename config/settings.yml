@@ -1,4 +1,6 @@
 plugins:
-  discourse_normalize_whitespace:
-    default: false
-    client: true
+    discourse_normalize_whitespace:
+      default: false
+      client: true
+      description:
+       en: "Activate to set all whitespace to the default space character (U+0020)"

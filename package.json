@@ -1,0 +1,7 @@
+{
+  "name": "discourse",
+  "version": "1.1.0",
+  "repository": "https://github.com/Rhababo/discourse_normalize_whitespace",
+  "author": "Rhababo",
+  "license": "MIT"
+}
